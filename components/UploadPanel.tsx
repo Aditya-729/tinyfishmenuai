@@ -6,6 +6,7 @@ type UploadPanelProps = {
   onFileChange: (file: File | null) => void;
   onSubmit: () => void;
   onStop?: () => void;
+  onDemo?: () => void;
   running: boolean;
 };
 
@@ -15,6 +16,7 @@ export function UploadPanel({
   onFileChange,
   onSubmit,
   onStop,
+  onDemo,
   running,
 }: UploadPanelProps) {
   return (
@@ -41,6 +43,15 @@ export function UploadPanel({
           <Button onClick={onSubmit} disabled={running}>
             {running ? "Analyzing..." : "Run analysis"}
           </Button>
+          {onDemo ? (
+            <button
+              type="button"
+              onClick={onDemo}
+              className="text-xs text-cyan-200 hover:text-cyan-100"
+            >
+              Load demo
+            </button>
+          ) : null}
           {running && onStop ? (
             <button
               type="button"

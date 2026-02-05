@@ -10,7 +10,7 @@ import { SourceGraph } from "../../components/SourceGraph";
 import { InsightPanel } from "../../components/InsightPanel";
 import { ClaimRail } from "../../components/ClaimRail";
 import { useNdjsonStream } from "../../hooks/useNdjsonStream";
-import { PipelineEvent } from "../../lib/types";
+import { EvidenceItem, PipelineEvent } from "../../lib/types";
 import { Skeleton } from "../../ui/Skeleton";
 import { buildResults, extractSummary } from "../../lib/pipelineClient";
 
@@ -142,6 +142,136 @@ export default function AppPage() {
     setRetryingClaims((prev) => ({ ...prev, [claimId]: false }));
   };
 
+  const runDemo = () => {
+    const demoRunId = `demo-${Date.now()}`;
+    const base = Date.now();
+    const supporting: EvidenceItem[] = [
+      {
+        id: "s1",
+        title: "Global Energy Monitor – Renewables Update",
+        url: "https://globalenergymonitor.org/",
+        snippet: "Global renewables additions reached new highs in 2024.",
+        source: "Demo",
+        relevanceScore: 0.86,
+        stance: "supporting",
+      },
+      {
+        id: "s2",
+        title: "IEA Global Energy Review",
+        url: "https://www.iea.org/reports/global-energy-review",
+        snippet: "International energy review reports continued growth.",
+        source: "Demo",
+        relevanceScore: 0.82,
+        stance: "supporting",
+      },
+    ];
+    const contradicting: EvidenceItem[] = [
+      {
+        id: "c1",
+        title: "Market Outlook – Adoption Risks",
+        url: "https://www.oecd.org/",
+        snippet: "Short-term adoption headwinds remain in some regions.",
+        source: "Demo",
+        relevanceScore: 0.42,
+        stance: "contradicting",
+      },
+    ];
+
+    const demoEvents: PipelineEvent[] = [
+      {
+        runId: demoRunId,
+        sequence: 0,
+        claimId: "document",
+        stage: "claim_extractor",
+        status: "completed",
+        timestamp: base,
+        payload: {
+          assessment: {
+            claimId: "document",
+            strengthScore: 0,
+            freshnessScore: 0,
+            worldRelevanceScore: 0,
+            riskLabel: "Medium",
+            notes: ["Loaded demo dataset."],
+          },
+        },
+      },
+      {
+        runId: demoRunId,
+        sequence: 1,
+        claimId: "demo-1",
+        stage: "claim_extractor",
+        status: "completed",
+        timestamp: base + 200,
+        payload: {
+          claim: {
+            id: "demo-1",
+            text: "Global renewable energy capacity reached a new record in 2024.",
+            tokens: ["global", "renewable", "energy", "capacity", "record", "2024"],
+          },
+        },
+      },
+      {
+        runId: demoRunId,
+        sequence: 2,
+        claimId: "demo-1",
+        stage: "evidence_finder",
+        status: "completed",
+        timestamp: base + 600,
+        payload: { supporting },
+      },
+      {
+        runId: demoRunId,
+        sequence: 3,
+        claimId: "demo-1",
+        stage: "counter_evidence",
+        status: "completed",
+        timestamp: base + 900,
+        payload: { contradicting },
+      },
+      {
+        runId: demoRunId,
+        sequence: 4,
+        claimId: "demo-1",
+        stage: "evidence_judge",
+        status: "completed",
+        timestamp: base + 1200,
+        payload: {
+          assessment: {
+            claimId: "demo-1",
+            strengthScore: 0.72,
+            freshnessScore: 0.78,
+            worldRelevanceScore: 0.83,
+            riskLabel: "Medium",
+            notes: ["Demo assessment indicates strong supporting evidence."],
+          },
+        },
+      },
+      {
+        runId: demoRunId,
+        sequence: 5,
+        claimId: "demo-1",
+        stage: "risk_integrity",
+        status: "completed",
+        timestamp: base + 1400,
+        payload: {
+          assessment: {
+            claimId: "demo-1",
+            strengthScore: 0.72,
+            freshnessScore: 0.78,
+            worldRelevanceScore: 0.83,
+            riskLabel: "Strong",
+            notes: ["Demo risk label updated."],
+          },
+        },
+      },
+    ];
+
+    demoEvents.forEach((event, index) => {
+      window.setTimeout(() => appendEvent(event), index * 250);
+    });
+  };
+
   return (
     <AppShell>
       <div className="grid gap-6 lg:grid-cols-[220px_1fr]">
@@ -154,6 +284,7 @@ export default function AppPage() {
               onFileChange={setFile}
               onSubmit={handleSubmit}
               onStop={stop}
+              onDemo={runDemo}
               running={running}
             />
             <PipelineLog events={events} />
