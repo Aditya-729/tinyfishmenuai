@@ -33,7 +33,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
             <Link href="/" className="flex items-center gap-3">
               <img
-                src="/api/logo-image"
+                src="/tinyfish-logo.png"
                 alt="TinyFish Mino AI"
                 width={36}
                 height={36}

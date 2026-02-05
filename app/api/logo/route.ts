@@ -4,6 +4,6 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const url = "/api/logo-image";
+  const url = "/tinyfish-logo.png";
   return Response.json({ url });
 }

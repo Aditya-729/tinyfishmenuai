@@ -15,7 +15,7 @@ const HeroScene = dynamic(() => import("./HeroScene").then((mod) => mod.HeroScen
 });
 
 export function LandingHero() {
-  const [logoUrl, setLogoUrl] = useState<string>("/logo.svg");
+  const [logoUrl, setLogoUrl] = useState<string>("/tinyfish-logo.png");
   const parallaxOffset = useParallax(0.08);
   const headline = "Verify every claim with a multi-agent evidence pipeline.";
   const prefersReducedMotion = useReducedMotion();
@@ -29,7 +29,7 @@ export function LandingHero() {
         const data = (await response.json()) as { url?: string };
         if (data.url) setLogoUrl(data.url);
       } catch {
-        setLogoUrl("/logo.svg");
+        setLogoUrl("/tinyfish-logo.png");
       }
     };
     fetchLogo();

@@ -5,12 +5,12 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const imagePath = path.join(process.cwd(), "64625.webp");
+  const imagePath = path.join(process.cwd(), "public", "tinyfish-logo.png");
   try {
     const data = await fs.readFile(imagePath);
     return new Response(data, {
       headers: {
-        "Content-Type": "image/webp",
+        "Content-Type": "image/png",
         "Cache-Control": "public, max-age=86400",
       },
     });

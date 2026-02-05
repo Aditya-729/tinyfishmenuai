@@ -6,9 +6,9 @@ const resolveRiskLabel = (
   score: number,
   freshness: number,
 ): ClaimAssessment["riskLabel"] => {
-  if (freshness < 0.35) return "Possibly outdated";
-  if (score > 0.75) return "Strong";
-  if (score > 0.55) return "Medium";
+  if (freshness < 0.3) return "Possibly outdated";
+  if (score > 0.68) return "Strong";
+  if (score > 0.5) return "Medium";
   if (score > 0.35) return "Weak";
   return "Possibly misleading";
 };
