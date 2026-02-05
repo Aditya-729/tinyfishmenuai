@@ -12,9 +12,9 @@ const features = [
       "Discover supporting and contradicting sources with structured, citation-ready evidence trails.",
   },
   {
-    title: "India relevance scoring",
+    title: "World relevance scoring",
     description:
-      "Gauge contextual signals for Indian market relevance and recency confidence.",
+      "Gauge contextual signals for global relevance and recency confidence.",
   },
   {
     title: "Evidence conflict detection",

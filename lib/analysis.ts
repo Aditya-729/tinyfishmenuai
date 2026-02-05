@@ -117,18 +117,19 @@ export const summarizePipeline = (results: ClaimResult[]): PipelineSummary => {
   };
 };
 
-export const scoreIndiaRelevance = (text: string) => {
+export const scoreWorldRelevance = (text: string) => {
   const tokens = tokenize(text);
   const keywords = [
-    "india",
-    "indian",
-    "bharat",
-    "delhi",
-    "mumbai",
-    "bangalore",
-    "rupee",
-    "reserve",
-    "parliament",
+    "global",
+    "world",
+    "international",
+    "worldwide",
+    "united",
+    "nations",
+    "g7",
+    "g20",
+    "oecd",
+    "climate",
   ];
   const hits = tokens.filter((token) => keywords.includes(token)).length;
   return clamp(hits / 6);

@@ -1,13 +1,13 @@
-# TinyFishMenuAI – Research Claim Checker
+# Research Claim Checker by TinyFish Mino AI
 
-TinyFishMenuAI is a production-ready, multi-agent research verification system that breaks documents into atomic claims, streams evidence discovery, and labels risk with transparent integrity signals.
+Research Claim Checker by TinyFish Mino AI is a production-ready, multi-agent research verification system that breaks documents into atomic claims, streams evidence discovery, and labels risk with transparent integrity signals.
 
 ## Features
 
 - Mino-powered multi-stage pipeline (extract, evidence, counter-evidence, judge, risk)
 - Perplexity evidence discovery and source lookup
 - Real-time NDJSON streaming pipeline updates
-- Claim cards with evidence strength, freshness, and India relevance
+- Claim cards with evidence strength, freshness, and world relevance
 - Advanced signals: clustering, duplicates, temporal drift, evidence conflict
 - Neumorphic + glassmorphic + claymorphic UI with animation-driven UX
 

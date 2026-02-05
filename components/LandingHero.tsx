@@ -46,13 +46,13 @@ export function LandingHero() {
           <div className="flex items-center gap-3">
             <img
               src={logoUrl}
-              alt="TinyFishMenuAI"
+              alt="TinyFish Mino AI"
               width={48}
               height={48}
               className="h-12 w-12 rounded-2xl object-contain"
             />
             <p className="text-sm uppercase tracking-[0.4em] text-cyan-200">
-              Research claim checker
+              Research claim checker by TinyFish Mino AI
             </p>
           </div>
           <motion.h1
@@ -78,7 +78,7 @@ export function LandingHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1 }}
           >
-            TinyFishMenuAI orchestrates Mino agents with Perplexity source
+            TinyFish Mino AI orchestrates Mino agents with Perplexity source
             lookup to extract claims, hunt evidence, and score research
             integrity in real time.
           </motion.p>
@@ -100,7 +100,7 @@ export function LandingHero() {
               NDJSON streaming
             </span>
             <span className="rounded-full bg-white/10 px-3 py-1">
-              India relevance scoring
+              World relevance scoring
             </span>
             <span className="rounded-full bg-white/10 px-3 py-1">
               Perplexity source lookup

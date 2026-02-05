@@ -108,8 +108,8 @@ export function ClaimCard({
               <ProgressBar value={result.assessment.freshnessScore} />
             </div>
             <div>
-              <p>India relevance</p>
-              <ProgressBar value={result.assessment.indiaRelevanceScore} />
+              <p>World relevance</p>
+              <ProgressBar value={result.assessment.worldRelevanceScore} />
             </div>
           </>
         ) : null}

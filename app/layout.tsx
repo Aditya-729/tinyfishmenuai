@@ -13,7 +13,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "TinyFishMenuAI – Research Claim Checker",
+  title: "Research Claim Checker by TinyFish Mino AI",
   description:
     "Multi-agent research claim verification with real-time evidence streaming.",
 };

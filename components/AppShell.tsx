@@ -34,13 +34,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Link href="/" className="flex items-center gap-3">
               <img
                 src="/api/logo-image"
-                alt="TinyFishMenuAI"
+                alt="TinyFish Mino AI"
                 width={36}
                 height={36}
                 className="h-9 w-9 rounded-xl object-contain"
               />
               <span className="text-sm font-semibold tracking-[0.2em] text-cyan-200">
-                TinyFishMenuAI
+                Research Claim Checker by TinyFish Mino AI
               </span>
             </Link>
             <div className="flex items-center gap-3">

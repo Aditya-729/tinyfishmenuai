@@ -1,7 +1,7 @@
 import { MinoClient } from "../lib/mino";
 import { ClaimAssessment, EvidenceItem } from "../lib/types";
 import { average, clamp } from "../lib/utils";
-import { scoreIndiaRelevance } from "../lib/analysis";
+import { scoreWorldRelevance } from "../lib/analysis";
 
 export const judgeEvidence = async (
   claimId: string,
@@ -17,7 +17,7 @@ export const judgeEvidence = async (
     contradicting.map((item) => item.relevanceScore),
   );
   const freshnessScore = clamp(1 - contradictScore * 0.4);
-  const indiaRelevanceScore = scoreIndiaRelevance(claimText);
+  const worldRelevanceScore = scoreWorldRelevance(claimText);
   const strengthScore = clamp(supportScore - contradictScore + 0.5);
 
   try {
@@ -35,7 +35,7 @@ export const judgeEvidence = async (
     claimId,
     strengthScore,
     freshnessScore,
-    indiaRelevanceScore,
+    worldRelevanceScore,
     riskLabel: "Medium",
     notes: [
       supportScore > contradictScore

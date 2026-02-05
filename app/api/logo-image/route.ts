@@ -8,7 +8,7 @@ export async function GET() {
   const imagePath = path.join(
     process.cwd(),
     "assets",
-    "c__Users_User_AppData_Roaming_Cursor_User_workspaceStorage_7465701dbcaaa42619be9d912ff65c04_images_image-d4a8b809-3fb7-4a6f-b42d-18a9cf18f6ec.png",
+    "c__Users_User_AppData_Roaming_Cursor_User_workspaceStorage_7465701dbcaaa42619be9d912ff65c04_images_64625-5cd8d599-da28-4eb2-ab72-0f72094885b3.png",
   );
   try {
     const data = await fs.readFile(imagePath);

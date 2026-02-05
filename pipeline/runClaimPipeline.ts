@@ -82,7 +82,7 @@ export async function runClaimPipeline({
     claimId: claim.id,
     strengthScore: 0.4,
     freshnessScore: 0.5,
-    indiaRelevanceScore: 0.5,
+    worldRelevanceScore: 0.5,
     riskLabel: "Weak",
     notes: ["Judge stage fallback."],
   };

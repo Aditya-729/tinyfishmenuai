@@ -34,7 +34,7 @@ export type ClaimAssessment = {
   claimId: string;
   strengthScore: number;
   freshnessScore: number;
-  indiaRelevanceScore: number;
+  worldRelevanceScore: number;
   riskLabel:
     | "Strong"
     | "Medium"

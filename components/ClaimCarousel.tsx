@@ -3,15 +3,15 @@ import { Badge } from "../ui/Badge";
 
 const claimCards = [
   {
-    text: "India's renewable energy capacity crossed 180 GW in 2024.",
+    text: "Global renewable energy capacity crossed a new record in 2024.",
     risk: "Strong",
   },
   {
-    text: "Consumer inflation fell below 4% for three consecutive quarters.",
+    text: "Worldwide headline inflation eased for three consecutive quarters.",
     risk: "Medium",
   },
   {
-    text: "Electric vehicle adoption surpassed 30% of all new sales in India.",
+    text: "Electric vehicle adoption surpassed 30% of new sales globally.",
     risk: "Possibly misleading",
   },
 ];
@@ -49,7 +49,7 @@ export function ClaimCarousel() {
               <p className="mt-4 text-sm text-white">{card.text}</p>
               <div className="mt-6 space-y-2 text-xs text-slate-300">
                 <p>Freshness: 0.82</p>
-                <p>India relevance: 0.74</p>
+                <p>World relevance: 0.74</p>
                 <p>Evidence strength: 0.77</p>
               </div>
             </div>

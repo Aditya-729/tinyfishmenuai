@@ -13,7 +13,7 @@ export const buildResults = (events: PipelineEvent[]) => {
         claimId: event.claimId,
         strengthScore: 0,
         freshnessScore: 0,
-        indiaRelevanceScore: 0,
+        worldRelevanceScore: 0,
         riskLabel: "Medium",
         notes: [],
       },
