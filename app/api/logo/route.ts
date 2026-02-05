@@ -4,9 +4,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const url =
-    (await fetchLogoUrl("TinyFishMenuAI logo")) ??
-    "/api/logo-image" ??
-    "/logo.svg";
+  const fetched = await fetchLogoUrl("TinyFishMenuAI logo");
+  const url = fetched ?? "/api/logo-image";
   return Response.json({ url });
 }
