@@ -18,7 +18,7 @@ export const judgeEvidence = async (
   );
   const freshnessScore = clamp(1 - contradictScore * 0.4);
   const worldRelevanceScore = scoreWorldRelevance(claimText);
-  const strengthScore = clamp(supportScore - contradictScore + 0.5);
+  const strengthScore = clamp(supportScore * 1.15 - contradictScore * 0.85 + 0.35);
 
   try {
     await mino.runAgent({

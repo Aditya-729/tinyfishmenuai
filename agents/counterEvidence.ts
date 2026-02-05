@@ -30,7 +30,7 @@ export const findCounterEvidence = async (
     url: source.url ?? "#",
     snippet: source.snippet ?? "No snippet available.",
     source: "Perplexity",
-    relevanceScore: 0.7 - index * 0.04,
+    relevanceScore: Math.max(0.35, 0.55 - index * 0.04),
     stance: "contradicting",
   }));
 };

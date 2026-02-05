@@ -47,6 +47,34 @@ body {
   text-shadow: 0 0 25px rgba(125, 211, 252, 0.45);
 }
 
+.text-3d {
+  text-shadow:
+    0 2px 0 rgba(15, 23, 42, 0.6),
+    0 6px 14px rgba(15, 23, 42, 0.55),
+    0 18px 40px rgba(56, 189, 248, 0.25);
+}
+
+.text-gradient-animate {
+  background: linear-gradient(120deg, #7dd3fc, #f0abfc, #22d3ee);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .scroll-snap-y {
   scroll-snap-type: y mandatory;
 }

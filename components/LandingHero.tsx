@@ -56,7 +56,7 @@ export function LandingHero() {
             </p>
           </div>
           <motion.h1
-            className="text-glow font-[var(--font-space)] text-4xl font-semibold leading-tight text-white md:text-6xl"
+            className="text-glow text-3d text-gradient-animate font-[var(--font-space)] text-4xl font-semibold leading-tight md:text-6xl"
             initial={prefersReducedMotion ? "visible" : "hidden"}
             animate="visible"
             variants={motionPresets.stagger}

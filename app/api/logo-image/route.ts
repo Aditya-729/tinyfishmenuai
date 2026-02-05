@@ -5,16 +5,12 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const imagePath = path.join(
-    process.cwd(),
-    "assets",
-    "c__Users_User_AppData_Roaming_Cursor_User_workspaceStorage_7465701dbcaaa42619be9d912ff65c04_images_64625-5cd8d599-da28-4eb2-ab72-0f72094885b3.png",
-  );
+  const imagePath = path.join(process.cwd(), "64625.webp");
   try {
     const data = await fs.readFile(imagePath);
     return new Response(data, {
       headers: {
-        "Content-Type": "image/png",
+        "Content-Type": "image/webp",
         "Cache-Control": "public, max-age=86400",
       },
     });

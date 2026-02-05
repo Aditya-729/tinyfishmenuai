@@ -31,7 +31,7 @@ export const findEvidence = async (
     url: source.url ?? "#",
     snippet: source.snippet ?? "No snippet available.",
     source: "Perplexity",
-    relevanceScore: 0.7 - index * 0.04,
+    relevanceScore: Math.max(0.55, 0.85 - index * 0.05),
     stance: "supporting",
   }));
 };
