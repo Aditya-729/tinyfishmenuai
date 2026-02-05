@@ -2,7 +2,10 @@ import { MinoClient } from "../lib/mino";
 import { ClaimAssessment } from "../lib/types";
 import { clamp } from "../lib/utils";
 
-const resolveRiskLabel = (score: number, freshness: number) => {
+const resolveRiskLabel = (
+  score: number,
+  freshness: number,
+): ClaimAssessment["riskLabel"] => {
   if (freshness < 0.35) return "Possibly outdated";
   if (score > 0.75) return "Strong";
   if (score > 0.55) return "Medium";
