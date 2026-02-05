@@ -1,7 +1,13 @@
 import { MinoClient } from "../lib/mino";
 import { PerplexityClient } from "../lib/perplexity";
 import { summarizePipeline } from "../lib/analysis";
-import { ClaimResult, PipelineEvent, PipelineStage, PipelineStatus } from "../lib/types";
+import {
+  ClaimAssessment,
+  ClaimResult,
+  PipelineEvent,
+  PipelineStage,
+  PipelineStatus,
+} from "../lib/types";
 import { extractClaims } from "../agents/claimExtractor";
 import { findEvidence } from "../agents/evidenceFinder";
 import { findCounterEvidence } from "../agents/counterEvidence";
@@ -90,12 +96,12 @@ export async function runPipeline({ text, runId, emit }: PipelineInput) {
       }
 
       emitStage(claim.id, "evidence_judge", "started");
-      let assessment = {
+      let assessment: ClaimAssessment = {
         claimId: claim.id,
         strengthScore: 0.4,
         freshnessScore: 0.5,
         indiaRelevanceScore: 0.5,
-        riskLabel: "Weak" as const,
+        riskLabel: "Weak",
         notes: ["Judge stage fallback."],
       };
       try {
